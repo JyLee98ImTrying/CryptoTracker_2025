@@ -13,7 +13,7 @@ from sklearn.metrics import classification_report
 
 # === Section 1: Data Fetching ===
 
-def get_historical_data(coin_id='bitcoin', vs_currency='usd', days='90'):
+def get_historical_data(coin_id='bitcoin', vs_currency='usd', days='90'): #Error in days
     url = f"https://api.coingecko.com/api/v3/coins/{coin_id}/market_chart"
     params = {'vs_currency': vs_currency, 'days': days}
     response = requests.get(url, params=params)
@@ -54,7 +54,7 @@ def train_model(df):
 
 # === Section 4: Streamlit UI ===
 
-st.title("🔍 Crypto Tracker & Buy/Sell Predictor")
+st.title("🔍 Crypto Tracker & Buy/Sell Predictor") #This to add the buy in price recommendation + option to say bought in at what price
 coin = st.selectbox("Select a coin:", ['bitcoin', 'ethereum', 'solana'])
 days = st.slider("Days of history to fetch:", min_value=30, max_value=365, value=90)
 
